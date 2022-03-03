@@ -4,86 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="81dp">
 
-    <Button
-        android:id="@+id/buttonCalculate"
-        android:layout_width="102dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="141dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginBottom="66dp"
-        android:text="BERECHNEN"
-        android:textSize="10sp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/buttonSend"
-        android:layout_width="102dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="141dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginBottom="20dp"
-        android:text="ABSCHICKEN"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCalculate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewForStudentId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="85dp"
-        android:layout_marginBottom="27dp"
-        android:text="Gib deine Matrikelnummer ein"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextStudentId"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-    <EditText
-        android:id="@+id/editTextStudentId"
-        android:layout_width="155dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginEnd="114dp"
-        android:layout_marginBottom="65dp"
-        android:ems="10"
-        android:inputType="number"
-        android:maxLength="8"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewAnswerOfServer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textViewForStudentId"
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="99dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="21dp"
+            android:text="Gib deine Matrikelnummer ein"
+            android:textAlignment="center"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/textViewAnswerOfServer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="122dp"
-        android:layout_marginEnd="121dp"
-        android:layout_marginBottom="9dp"
-        android:text="Antwort vom Server"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewEditableAnswerOfServer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/editTextStudentId"
+            android:layout_width="155dp"
+            android:layout_height="39dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="128dp"
+            android:layout_marginEnd="128dp"
+            android:layout_marginBottom="125dp"
+            android:ems="10"
+            android:inputType="number"
+            android:maxLength="8"
+            android:textSize="10sp" />
 
-    <TextView
-        android:id="@+id/textViewEditableAnswerOfServer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginEnd="167dp"
-        android:layout_marginBottom="94dp"
-        android:text="Antwort"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSend"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textViewAnswerOfServer"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="135dp"
+            android:layout_marginEnd="136dp"
+            android:layout_marginBottom="30dp"
+            android:text="Antwort vom Server"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewEditableAnswerOfServer"
+            android:layout_width="399dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="181dp"
+            android:layout_marginBottom="250dp"
+            android:text="Antwort"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/buttonSend"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ABSCHICKEN"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/buttonCalculate"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="BERECHNEN"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
