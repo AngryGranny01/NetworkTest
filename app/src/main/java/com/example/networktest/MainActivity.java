@@ -13,6 +13,8 @@ import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
     private TextView outPutServer;
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         btn = findViewById(R.id.buttonSend);
 
         btn.setOnClickListener(
-                new View.OnClickListener(){
+                new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         TextView studentId = findViewById(R.id.editTextStudentId);
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    public void ServerClientInteraction(InputStream studentId) throws Exception{
+    public void ServerClientInteraction(InputStream studentId) throws Exception {
         String sentence;
         String modifiedSentence;
 
@@ -61,5 +63,26 @@ public class MainActivity extends AppCompatActivity {
         outPutServer = findViewById(R.id.textViewAnswerOfServer);
         outPutServer.setText(modifiedSentence);
         client.close();
+    }
+
+    public String sortStudentIdEvenThanOdd(String studentId) {
+        StringBuilder oddNumbers = new StringBuilder();
+        StringBuilder evenNumbers = new StringBuilder();
+        for (int i = 0; i < studentId.length(); i++) {
+            if (studentId.charAt(i) % 2 == 0) {
+                evenNumbers.append(studentId.charAt(i));
+            } else {
+                oddNumbers.append(studentId.charAt(i));
+            }
+        }
+        String result;
+        result = sortAscendingOrder(evenNumbers.toString()) + sortAscendingOrder(oddNumbers.toString());
+        return result;
+    }
+
+    public String sortAscendingOrder(String sort){
+        char charArray[] = sort.toCharArray();
+        Arrays.sort(charArray);
+        return Arrays.toString(charArray);
     }
 }
