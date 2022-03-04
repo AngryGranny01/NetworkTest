@@ -43,33 +43,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     /**
      * @param studentId
-     * @throws Exception
-     * Methode for the Interaction between Client and Server and showing the
-     * output of the Server on the designated spot on the application
-     */
-    public String ServerClientInteraction(InputStream studentId) throws Exception {
-        String sentence;
-        String modifiedSentence;
-
-        BufferedReader inputUser = new BufferedReader(new InputStreamReader(studentId));
-
-        Socket client = new Socket("se2-isys.aau.at", 53212);
-
-        DataOutputStream outToServer = new DataOutputStream(client.getOutputStream());
-
-        BufferedReader inFromServer = new BufferedReader(new InputStreamReader(client.getInputStream()));
-
-        sentence = inputUser.readLine();
-
-        outToServer.writeBytes(sentence + '\n');
-
-        modifiedSentence = inFromServer.readLine();
-        client.close();
-        return modifiedSentence;
-    }
-
-    /**
-     * @param studentId
      * @return student ID sorted. First even than odd numbers and in
      * ascending order
      */
@@ -102,24 +75,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * @param view
      * Listener for both buttons with switch statements too decide
-     * what button was clicked
+     * what button was clicked. Button Send is for the Server Client Interaction where
+     * a Thread is used
+     * ButtonCalculate its function is described in the upper two methods
      */
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
+        String result = "";
         switch (view.getId()){
             case R.id.buttonSend:
                 InputStream stream = new ByteArrayInputStream(studentId.getText().toString().getBytes());
+                ClientInteraction clientInteraction = new ClientInteraction(stream);
+                clientInteraction.start();
                 try {
-                    outPutServer.setText(ServerClientInteraction(stream));
-                } catch (Exception e) {
+                    clientInteraction.join(1000);
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                result = clientInteraction.getResult();
                 break;
             case R.id.buttonCalculate:
-                String result = sortStudentIdEvenThanOdd(studentId.getText().toString());
-                outPutServer.setText(result);
+                result = sortStudentIdEvenThanOdd(studentId.getText().toString());
                 break;
         }
+        outPutServer.setText(result);
     }
 }

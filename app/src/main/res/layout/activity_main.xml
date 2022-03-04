@@ -59,7 +59,7 @@
         <TextView
             android:id="@+id/textViewEditableAnswerOfServer"
             android:layout_width="399dp"
-            android:layout_height="32dp"
+            android:layout_height="43dp"
             android:layout_marginEnd="181dp"
             android:layout_marginBottom="250dp"
             android:editable="false"
